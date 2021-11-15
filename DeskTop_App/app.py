@@ -103,3 +103,11 @@ class Login(tk.Tk):
         myButton1.bind("<Leave>", on_leavea)
 
         myButton1.place(x=x, y=y)
+
+#update delete all sv 
+def delete_all_sv(self):
+        check = messagebox.askquestion("NGUY HIỂM","Bạn có muốn xóa toàn bộ sinh viên!")
+        if check == 'yes':
+            shutil.rmtree('dataset')
+            os.mkdir(FOLDER)
+            del_all_sv()
