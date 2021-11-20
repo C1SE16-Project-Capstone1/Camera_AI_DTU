@@ -386,3 +386,64 @@ class App(tk.Toplevel):
         self.list_anh_show = []
         self.num_img = 1
         self.id.delete(0, 'end')
+    def train_thread(self):
+        #xu ly data truoc khi train
+        #get all thu muc con cua thu muc dataset
+        list_data_sv = get_sinhhvien()
+        list_sv = []
+        for sv in list_data_sv:
+            list_sv.append(str(sv[0]))
+        list_data = os.listdir('dataset')
+        for data in list_data:
+            if str(data) not in list_sv:
+                shutil.rmtree('dataset/'+str(data))
+        verbose = True
+        tic = time.perf_counter()
+        print("Training KNN classifier...")
+        # Creates Classifier
+        classifier = test_train.train(FOLDER, model_save_path="trained_knn_model.clf", verbose=verbose)
+        print("Training complete!")
+        toc = time.perf_counter()
+        if verbose:
+            text_result_train = f"THÊM THÀNH CÔNG !! Đã train nhận diện sinh viên trong {toc - tic:0.4f} giây"
+            self.label_result_train = ttk.Label(self.video,text =text_result_train)
+            self.label_result_train.grid(row = 6,column=2,pady = 20)
+    def train(self):
+        self.name_sv = self.ten.get()
+        if self.name_sv == "":
+            messagebox.showwarning(
+                "WARNING", "CHƯA NHẬP TÊN SINH VIÊN!")
+            return False
+        self.lop_sv = self.ten_lop.get()
+        if self.lop_sv == "":
+            messagebox.showwarning(
+                "WARNING", "CHƯA NHẬP LỚP CỦA SINH VIÊN!")
+            return False
+        self.sdt_sv = self.sdt.get()
+
+        #có thể check số điện thoai nếu muốn
+        if check_sdt(self.sdt_sv) == False:
+            messagebox.showwarning(
+                "WARNING", "CHƯA NHẬP HOẶC NHẬP SAI SDT CỦA SINH VIÊN!")
+            return False
+        result_add = add_sinhvien(self.id_sv,self.name_sv,self.lop_sv,self.sdt_sv)
+        if result_add == False:
+            messagebox.showwarning(
+                "WARNING", "SINH VIÊN ĐÃ TỒN TẠI!!")
+            return False
+        luong_train = Thread(target=self.train_thread)
+        luong_train.start()
+
+
+def detect_mask():
+    video_frame = MyVideoCapture()
+    while True:
+        list_name, list_result, ret, frame = video_frame.get_frame_detect()
+        cv2.imshow("CẢNH BÁO ĐEO KHẨU TRANG", frame)
+        if cv2.waitKey(24) == 27:
+            break
+    cv2.destroyAllWindows()
+
+def nhan_dien_khau_trang():
+    luong_detect = Thread(target=detect_mask)
+    luong_detect.start()
