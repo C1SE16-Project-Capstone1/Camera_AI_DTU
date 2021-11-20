@@ -177,3 +177,28 @@ class APPMAIN(tk.Tk):
         luong_detect = Thread(target=self.detect_mask)
 
         luong_detect.start()
+    #ham nhan dien
+    def detect_mask(self):
+        video_frame = MyVideoCapture()
+        try:
+            os.mkdir("vipham")
+        except:
+            pass
+        while True:
+            list_id, list_result, ret, frame = video_frame.get_frame_detect()
+            cv2.imshow("CẢNH BÁO ĐEO KHẨU TRANG", frame)
+            text_show = ""
+            for i in range(len(list_id)):
+                text_show = text_show + "ID: {0} =>> {1}\n".format(list_id[i],list_result[i])
+                if list_result[i] == "No mask" or list_result[i] == "Wrong":
+                    name_img = str(get_time())+".jpg"
+                    check = check_vi_pham_hop_le(list_id[i],name_img=name_img)
+                    if check:
+                        cv2.imwrite("vipham/" + name_img, frame)
+            self.show_kqs['text'] = text_show
+            self.label_kq_detect['text'] = "DANH SÁCH NHẬN DIỆN"
+            self.show_kq_detect.update()
+            if cv2.waitKey(20) == 27:
+                self.show_kq_detect.destroy()
+                break
+        cv2.destroyAllWindows()
