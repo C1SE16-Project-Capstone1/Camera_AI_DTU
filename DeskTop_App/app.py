@@ -202,3 +202,41 @@ class APPMAIN(tk.Tk):
                 self.show_kq_detect.destroy()
                 break
         cv2.destroyAllWindows()
+    #ham hien noi dung update
+    def show_form_update(self):
+        self.form_update = ttk.Frame(self)
+        self.thongtin_update_label = ttk.Label(self.form_update,text="SỬA THÔNG TIN CỦA #ID{0}".format(self.id_find),font=('Helvetica', 16))
+        self.thongtin_update_label.grid(row=0,column=0)
+        #name
+        self.name_update_label = ttk.Label(self.form_update,text="Tên SV: ")
+        self.name_update_label.grid(row=1,column=0,sticky=tk.W)
+        self.name_update_entry = tk.StringVar()
+        self.name_update_entry = ttk.Entry(self.form_update)
+        self.name_update_entry.grid(row=1,column=0,sticky=tk.E,ipadx=50)
+
+        #lop
+        self.lop_update_label = ttk.Label(self.form_update, text="Lớp SV: ")
+        self.lop_update_label.grid(row=2, column=0, sticky=tk.W)
+        self.lop_update_entry = tk.StringVar()
+        self.lop_update_entry = ttk.Entry(self.form_update)
+        self.lop_update_entry.grid(row=2, column=0, sticky=tk.E, ipadx=50)
+        #sdt
+        self.sdt_update_label = ttk.Label(self.form_update, text="SDT SV: ")
+        self.sdt_update_label.grid(row=3, column=0, sticky=tk.W)
+        self.sdt_update_entry = tk.StringVar()
+        self.sdt_update_entry = ttk.Entry(self.form_update)
+        self.sdt_update_entry.grid(row=3, column=0, sticky=tk.E, ipadx=50)
+
+        #button update
+        self.button_update_one_sv = ttk.Button(self.form_update,text= "UPDATE",command=self.update_one_sv)
+        self.button_update_one_sv.grid(row=4,column=0)
+        self.form_update.grid(row=4, column=0, sticky=tk.W, padx=20)
+        # train
+        #ham xoa 1 sinh vien
+    def xoa_sinh_vien(self):
+        check = messagebox.askquestion("NGUY HIỂM", "Bạn có muốn xóa sinh viên này!")
+        if check == "yes":
+            del_sinhvien(self.id_find)
+            shutil.rmtree('dataset/'+str(self.id_find))
+            luong_train_lai = Thread(target=self.train_after_del)
+            luong_train_lai.start()
