@@ -144,3 +144,19 @@ def chuyen_man_hinh_add_sv():
     # app.destroy()
     # app = App()
     # app.mainloop()
+class APPMAIN(tk.Tk):
+    def __init__(self):
+        super().__init__()
+        self.sv = None
+        self.contacts = []
+        self.title("HỆ THỐNG NHẮC NHỞ ĐEO KHẨU TRANG")
+        self.configure(bg='#f7e8c0')
+        self.geometry("1600x800")
+        self.label_phanmem = tk.Label(self, text="PHẦM MỀM NHẮC NHỞ ĐEO KHẨU TRANG", font=('Helvetica', 25,'bold'), bg = '#f7e8c0', fg='red')
+        self.label_phanmem.grid(row=0, column=0, pady=30, padx=100)
+        self.create_table_sv()
+
+        self.create_find_sv()
+        self.label_kq = None
+        self.form_update = None
+        self.create_frame_show_kq_detect()
