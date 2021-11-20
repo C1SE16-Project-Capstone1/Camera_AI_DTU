@@ -256,3 +256,31 @@ class APPMAIN(tk.Tk):
             shutil.rmtree('dataset/'+str(self.id_find))
             luong_train_lai = Thread(target=self.train_after_del)
             luong_train_lai.start()
+class App(tk.Toplevel):
+    def __init__(self):
+        super().__init__()
+        self.frame = None
+        self.create_video_frame()
+        self.delay = 1
+        self.geometry("1600x800")
+        self.title("THÊM SINH VIÊN")
+        self.list_anh_show = []
+        self.num_img = 1
+        self.check_anh_chup_dau = True
+        self.get_image_temp = None
+        self.configure(background="#f7e8c0")
+
+    def update(self):
+        ret, self.frame,self.frame2 = self.video_frame.get_frame()
+        if ret:
+            self.photo2 = ImageTk.PhotoImage(image=Image.fromarray(self.frame2))
+            self.photo = ImageTk.PhotoImage(image=Image.fromarray(self.frame))
+            self.canvas.create_image(0, 0, image=self.photo, anchor=tk.NW)
+        self.video.after(1,self.update)
+    def update_detect(self):
+        ret, self.frame = self.video_frame.get_frame_detect()
+        if ret:
+            self.photo2 = ImageTk.PhotoImage(image=Image.fromarray(self.frame2))
+            self.photo = ImageTk.PhotoImage(image=Image.fromarray(self.frame))
+            self.canvas.create_image(0, 0, image=self.photo, anchor=tk.NW)
+        self.video.after(1,self.update_detect)
