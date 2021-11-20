@@ -284,3 +284,105 @@ class App(tk.Toplevel):
             self.photo = ImageTk.PhotoImage(image=Image.fromarray(self.frame))
             self.canvas.create_image(0, 0, image=self.photo, anchor=tk.NW)
         self.video.after(1,self.update_detect)
+    def create_video_frame(self):
+        s = ttk.Style()
+        s.configure('new.TFrame', background='#f7e8c0')
+        self.video = ttk.Frame(self, style='new.TFrame')
+        self.video_frame = MyVideoCapture()
+        self.id_label = ttk.Label(self.video,text="Nhập ID:")
+        self.id_label.grid(row=0,column=0)
+        self.id = tk.StringVar()
+        self.id = ttk.Entry(self.video,width=30)
+        self.id.grid(row=0,column=1)
+        #nhap ten
+        self.ten_label = ttk.Label(self.video,text="Nhập Tên:")
+        self.ten_label.grid(row = 1,column = 0)
+        self.ten = tk.StringVar()
+        self.ten = ttk.Entry(self.video,width=30)
+        self.ten.grid(row = 1,column = 1)
+        #nhap chuc vu
+        self.ten_lop_label = ttk.Label(self.video, text="Nhập Tên Lớp:")
+        self.ten_lop_label.grid(row=2, column=0)
+        self.ten_lop = tk.StringVar()
+        self.ten_lop = ttk.Entry(self.video, width=30)
+        self.ten_lop.grid(row=2, column=1)
+        #nhap sdt
+        self.sdt_label = ttk.Label(self.video, text="Nhập SDT:")
+        self.sdt_label.grid(row=3, column=0)
+        self.sdt = tk.StringVar()
+        self.sdt = ttk.Entry(self.video, width=30)
+        self.sdt.grid(row=3, column=1)
+        #camera
+        self.canvas = tk.Canvas(self.video,width=self.video_frame.width,height=self.video_frame.height)
+        self.canvas.grid(row = 0, column = 2,rowspan=4,padx = 60)
+        self.photoDelete = ImageTk.PhotoImage(file='./images-logo/Camera-icon.png')
+        self.button_chup = tk.Button(self.video,text="   Chụp Ảnh " ,image=self.photoDelete, borderwidth=1.5,relief="solid",width=150,height=30,bg='#fff', compound=LEFT,command=self.chup_anh)
+        self.button_chup.grid(row = 5,column=2,pady = 20)
+        #button chuyen sang nhan dien
+        self.button_nhan_dien = ttk.Button(self.video, text="Nhận Diện", command=nhan_dien_khau_trang)
+        self.button_nhan_dien.grid(row=5, column=3, pady=20)
+        # button them sinh vien
+        self.showed_video = self.update()
+        self.video.grid(column=0, row=0, sticky=tk.NSEW, padx=10, pady=10)
+    def chup_anh(self):
+        try:
+            os.mkdir('dataset')
+        except:
+            pass
+        id = self.id.get()
+        if self.get_image_temp != None and id != self.get_image_temp:
+            self.check_anh_chup_dau = True
+            for i in self.list_anh_show:
+                i.destroy()
+            self.list_anh_show = []
+        if self.check_anh_chup_dau == True:
+            try:
+                shutil.rmtree("dataset/" + str(id))
+            except:
+                pass
+        if check_id(id) == False:
+            messagebox.showwarning(
+                "WARNING", "ID BẮT BUỘC LÀ SỐ NGUYÊN!! BẠN ĐÃ NHẬP SAI ID!")
+            return False
+        self.id_sv = id
+        try:
+            os.mkdir(FOLDER+str(id))
+        except:
+            pass
+        # name_img = FOLDER+str(id) +"img"+str(randrange(1000,10000))+".jpg"
+        name_img = FOLDER+str(id)+"/"+"img"+str(randrange(1000,10000))+".jpg"
+        imgpil = ImageTk.getimage(self.photo2)
+        imgpil = imgpil.convert('RGB')
+        imgpil.save(name_img,"JPEG")
+        imgpil.close()
+        print('ok')
+        self.get_image_temp = id
+        self.anh_da_chup_label = ttk.Label(self.video,text="Image FACE {0}/9: ".format(self.num_img))
+        self.anh_da_chup_label.grid(row=0,column=3)
+        self.button_clearn_img = ttk.Button(self.video,text = "Clear Img",command = self.clear_img)
+        self.button_clearn_img.grid(row = 0 ,column = 4)
+        self.list_img = os.listdir(FOLDER+str(id)+"/")
+        for (index,img) in enumerate(self.list_img):
+            self.show_list_image(FOLDER+str(id)+"/"+img,row=1+int(index/3),col=3+index%3)
+        self.num_img = len(self.list_img) + 1
+        if self.num_img == 10:
+            self.button_chup["state"] = "disabled"
+            self.button_them_sv = ttk.Button(self.video,text = "Thêm Sinh Viên",command = self.train)
+            self.button_them_sv.grid(row = 6,column=1,pady = 10)
+            self.check_anh_chup_dau = True
+        self.check_anh_chup_dau = False
+        def show_list_image(self,name_img,row,col):
+            img = Image.open(name_img)
+        image1 = img.resize((70, 70), Image.ANTIALIAS)
+        image1 = ImageTk.PhotoImage(image1)
+        self.anh_chup = ttk.Label(self.video, image=image1)
+        self.anh_chup.grid(row=row, column=col)
+        self.anh_chup.image = image1
+        self.list_anh_show.append(self.anh_chup)
+        # self.anh_da_chup_label = ttk.Label(self.video, text="Image FACE {0}/10: ".format(self.num_img))
+    def clear_img(self):
+        for i in self.list_anh_show:
+            i.destroy()
+        self.list_anh_show = []
+        self.num_img = 1
+        self.id.delete(0, 'end')
