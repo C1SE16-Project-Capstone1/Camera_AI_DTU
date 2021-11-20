@@ -173,3 +173,7 @@ class APPMAIN(tk.Tk):
         self.show_kqs = ttk.Label(self.show_kq_detect, text=text_show,font=('Helvetica', 12))
         self.show_kqs.grid(row=1, column=0)
         self.show_kq_detect.grid(row=4, column=0)
+    def nhan_dien_khau_trang(self):
+        luong_detect = Thread(target=self.detect_mask)
+
+        luong_detect.start()
