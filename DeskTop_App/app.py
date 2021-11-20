@@ -231,7 +231,23 @@ class APPMAIN(tk.Tk):
         self.button_update_one_sv = ttk.Button(self.form_update,text= "UPDATE",command=self.update_one_sv)
         self.button_update_one_sv.grid(row=4,column=0)
         self.form_update.grid(row=4, column=0, sticky=tk.W, padx=20)
-        # train
+        # train lai sau khi delete
+    def train_after_del(self):
+        if self.form_update != None:
+            self.form_update.destroy()
+        list_data = os.listdir(FOLDER)
+        if len(list_data)==0:
+            self.label_kq['text'] = "Đã xóa thành công sinh viên! Vui lòng Reload lại danh sách!"
+            self.frame_show_kq.update()
+            return False
+        verbose = True
+        tic = time.perf_counter()
+        print("Training KNN classifier...")
+        # Creates Classifier
+        classifier = test_train.train(FOLDER, model_save_path="trained_knn_model.clf", verbose=verbose)
+        print("Training complete!")
+        self.label_kq['text'] = "Đã xóa thành công sinh viên! Vui lòng Reload lại danh sách!"
+        self.frame_show_kq.update()
         #ham xoa 1 sinh vien
     def xoa_sinh_vien(self):
         check = messagebox.askquestion("NGUY HIỂM", "Bạn có muốn xóa sinh viên này!")
