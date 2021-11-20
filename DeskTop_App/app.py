@@ -160,3 +160,16 @@ class APPMAIN(tk.Tk):
         self.label_kq = None
         self.form_update = None
         self.create_frame_show_kq_detect()
+    def update_one_sv(self):
+        name = self.name_update_entry.get()
+        lop = self.lop_update_entry.get()
+        sdt = self.sdt_update_entry.get()
+        update_sinhvien(self.id_find,name=name,lop=lop,sdt=sdt)
+    def create_frame_show_kq_detect(self):
+        self.show_kq_detect = ttk.Frame(self)
+        self.label_kq_detect = ttk.Label(self.show_kq_detect, text="",font=('Helvetica', 16))
+        self.label_kq_detect.grid(row=0, column=0)
+        text_show = ""
+        self.show_kqs = ttk.Label(self.show_kq_detect, text=text_show,font=('Helvetica', 12))
+        self.show_kqs.grid(row=1, column=0)
+        self.show_kq_detect.grid(row=4, column=0)
