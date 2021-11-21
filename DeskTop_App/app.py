@@ -104,7 +104,7 @@ class Login(tk.Tk):
 
         myButton1.place(x=x, y=y)
 
-#update delete all sv 
+#update delete all studdents
 def delete_all_sv(self):
         check = messagebox.askquestion("NGUY HIỂM","Bạn có muốn xóa toàn bộ sinh viên!")
         if check == 'yes':
