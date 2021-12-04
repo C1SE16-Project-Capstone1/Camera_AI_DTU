@@ -1,0 +1,39 @@
+.hand-wash .columnH {
+  display: flex;
+  justify-content: center;
+}
+.hand-wash {
+  background: url(../../../images/background-img.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.hand-wash .columnH .main-image img {
+  width: 30vw;
+}
+
+.hand-wash .columnH .box-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.hand-wash .columnH .box-container .box {
+  text-align: center;
+  margin: 2rem;
+  width: 25%;
+}
+
+.hand-wash .columnH .box-container .box img {
+  width: 17rem;
+  height: 17rem;
+  padding: 1rem;
+}
+
+.hand-wash .columnH .box-container .box h3 {
+  color: var(--blue);
+  font-size: 2rem;
+  margin-top: 12px;
+}

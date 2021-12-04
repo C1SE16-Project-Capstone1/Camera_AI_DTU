@@ -1,0 +1,49 @@
+.precautions .columnP {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.precautions .columnP .box-container {
+  margin: 1.5rem;
+  flex: 1 1 50rem;
+  border: 0.1rem solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+}
+
+.precautions .columnP .box-container .title {
+  padding: 1.5rem 0.5rem;
+  text-align: center;
+  font-size: 2.5rem;
+  background: var(--blue);
+  color: #fff;
+}
+
+.precautions .columnP .box-container:last-child .title {
+  background: #ff3300;
+}
+
+.precautions .columnP .box-container .box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.precautions .columnP .box-container .box img {
+  width: 15rem;
+  padding: 1rem;
+}
+
+.precautions .columnP .box-container .box h3 {
+  color: var(--blue);
+  font-size: 2rem;
+  margin-top: 12px;
+}
+
+.precautions .columnP .box-container .box p {
+  font-size: 1.2rem;
+  color: var(--dark-blue);
+  padding: 1rem 0;
+}

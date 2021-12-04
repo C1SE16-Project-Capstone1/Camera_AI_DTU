@@ -1,0 +1,96 @@
+.imgDTU{
+    position: relative;
+    width: 20%;
+    max-width: 300px;
+}
+.img{
+    display: block;
+    width: 600px;
+    height: 500px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.titleDTU{
+    position: absolute;
+    bottom: 0;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    width: 600px;
+    transition: .5s ease;
+    opacity:0;
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+}
+.imgDTU:hover .titleDTU{
+    opacity: 1;
+}
+.main{
+	margin-left: 170px;
+	padding: 4px 10px;
+	color: black;
+	display: inline-block;
+}
+
+.contentO{
+    margin-top: -300px;
+    margin-left: 270px;
+    margin-bottom: 50px;
+    width: 55%;
+}
+
+.number{
+    position: absolute;
+    z-index: 99;
+	width: 20%;
+	top: 0;
+	left: 0;
+	padding-top: 20px;
+    margin-top: 100px;
+    margin-left: 1150px;
+}
+.titleNumber{
+    color: white;
+    width: 60%;
+    height: 30px;
+    text-align: center;
+    padding: 5px 10px;
+    font-size: 15px;
+    background: #d63031;
+}
+
+.mainContent{
+    margin-top: 10px;
+    font-size: 14px;
+    justify-content: center;
+}
+
+.tag{
+    font-size: 16px;
+    color: #d63031;
+    margin-top: 30px;
+    cursor: pointer;
+}
+.tag a{
+    color: black;
+}
+
+.tag a:hover{
+    color: brown;
+}
+.news{
+    margin-top: 20px;
+    font-family: 'Roboto Condensed',Tahoma;
+    font-size: 14px;
+    color: #c0392b;
+}
+.newsTitle{
+    margin-top: 20px;
+    margin: 20px 0;
+    border-bottom: 1px solid #b2bec3;
+}
+.fa-star{
+    color: #d63031;
+}

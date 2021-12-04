@@ -1,0 +1,40 @@
+.symptoms {
+  background: url(../../../images/background-img.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.symptoms .columnS {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.symptoms .columnS .main-image img {
+  width: 43vh;
+}
+
+.symptoms .columnS .box-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.symptoms .columnS .box-container .box {
+  margin: 1rem;
+  text-align: center;
+  width: 30%;
+}
+
+.symptoms .columnS .box-container .box img {
+  width: 20rem;
+  padding: 1rem;
+}
+
+.symptoms .columnS .box-container .box h3 {
+  color: var(--blue);
+  font-size: 2rem;
+  margin-top: 12px;
+}
