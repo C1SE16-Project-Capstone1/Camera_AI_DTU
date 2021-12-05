@@ -1,12 +1,20 @@
 import React, { Component } from "react";
 import "./CheckViolation.css";
 
+import { useState, useEffect } from 'react';
+
 import checking from "../../images/checking.jpg";
 import checkinformation from "../../images/check-information.jpg";
 import praise from "../../images/praise.jfif";
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
+
+
 
 export default class Checklist extends Component {
+
   render() {
+
     function handleCLG() {
       var getAPI = "http://localhost:9999/check-violation?id=";
 
@@ -43,6 +51,7 @@ export default class Checklist extends Component {
           }
         });
     }
+
     return (
       <div>
         <section className="symptoms" id="violation-list">
@@ -97,11 +106,9 @@ export default class Checklist extends Component {
                 </div>
                 <img src={praise} alt="" class="congratulations-img-right" />
               </div>
-              <div
-                class="violation-information-check"
-                id="violation-information-check"
-              >
+              <div class="violation-information-check" id="violation-information-check">
                 <table class="table" id="check-violation">
+
                   <thead class="thead-light">
                     <tr>
                       <th scope="col">Number</th>
@@ -113,7 +120,9 @@ export default class Checklist extends Component {
                       <th scope="col">Phone Number</th>
                     </tr>
                   </thead>
+
                   <tbody id="myTable"></tbody>
+
                 </table>
               </div>
             </div>

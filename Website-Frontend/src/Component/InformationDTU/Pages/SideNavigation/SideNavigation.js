@@ -7,11 +7,11 @@ export default class SideNavigation extends Component {
         return (
             <div className="sidenav">
                 <h2 className="titleMain">Giới Thiệu</h2>
-                <Link to="/overview">Tổng Quan</Link>
-                <Link to="/mission">Sứ Mạng</Link>
-                <Link to="/traditional">Truyền Thống</Link>
-                <Link to="/research">Nghiên Cứu</Link>
-                <Link to="/team">Đội Ngũ Hành Chính</Link>
+                <Link to="overview">Tổng Quan</Link>
+                <Link to="mission">Sứ Mạng</Link>
+                <Link to="traditional">Truyền Thống</Link>
+                <Link to="research">Nghiên Cứu</Link>
+                <Link to="team">Đội Ngũ Hành Chính</Link>
             </div>
         )
     }

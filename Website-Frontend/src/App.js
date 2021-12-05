@@ -1,4 +1,5 @@
 import "./App.css";
+import React, { useEffect, useState } from "react";
 import $ from "jquery";
 import Menu from "./Component/HeaderNavigation/HeaderNavigation";
 import Footer from "./Component/FooterWebsite/FooterWebsite";
@@ -16,6 +17,17 @@ import Prevent from "./Component/InformationCovid19/Prevent/Prevent";
 import Hand from "./Component/InformationCovid19/Hand/Hand";
 import Precautions from "./Component/InformationCovid19/Precautions/Precautions";
 import Symptoms from "./Component/InformationCovid19/Symptoms/Symptoms";
+import HashLoader from "react-spinners/HashLoader";
+import { css } from "@emotion/react";
+
+
+const override = css`
+  display: block;
+  margin: 0 auto;
+  margin-top: 350px;
+  color: 0BA587;
+  border-color: 0BA587;`
+;
 
 function App() {
   $(document).ready(function () {
@@ -64,27 +76,47 @@ function App() {
       );
     });
   });
+
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(true)
+    setTimeout(() => {
+      setLoading(false)
+    }, 2000)
+  }, [])
+
+
   return (
     <div className="App">
-      <Menu />
-      <Routes>
-        <Route exact path="/" element={<SummaryCovid />} />
-        <Route path="/over" element={<Summary />} />
-        <Route path="/check" element={<CheckValidation />} />
-        <Route path="/summarypage" element={<SummaryPage />} />
-        <Route path="/prevent" element={<Prevent />} />
-        <Route path="/hand-wash" element={<Hand />} />
-        <Route path="/precautions" element={<Precautions />} />
-        <Route path="/symptoms" element={<Symptoms />} />
-        <Route path="/overview" element={<Overview />} />
-        <Route path="/mission" element={<Mission />} />
-        <Route path="/traditional" element={<Traditional />} />
-        <Route path="/research" element={<Research />} />
-        <Route path="/team" element={<Team />} />
-      </Routes>
-      <Footer />
+      {
+        loading ?
+          <HashLoader css={override} loading={loading} size={50} />
+          :
+          <div>
+            <Menu />
+            <Routes>
+              <Route exact path="/" loading element={<SummaryCovid />} />
+              <Route path="/over" element={<Summary />} />
+              <Route path="/check" element={<CheckValidation />} />
+              <Route path="/summarypage" element={<SummaryPage />}>
+                <Route path="overview" element={<Overview />} />
+                <Route path="mission" element={<Mission />} />
+                <Route path="traditional" element={<Traditional />} />
+                <Route path="research" element={<Research />} />
+                <Route path="team" element={<Team />} />
+              </Route>
+              <Route path="/prevent" element={<Prevent />} />
+              <Route path="/hand-wash" element={<Hand />} />
+              <Route path="/precautions" element={<Precautions />} />
+              <Route path="/symptoms" element={<Symptoms />} />
+            </Routes>
+            <Footer />
+          </div>
+      }
+
     </div>
   );
 }
+
 
 export default App;
