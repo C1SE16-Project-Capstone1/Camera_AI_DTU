@@ -42,18 +42,6 @@ section {
   font-weight: 600;
 }
 
-header {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  padding: 2rem;
-  background-color: white;
-}
 .home-information-school {
   margin-left: 44px;
   margin-top: -80px;
@@ -67,41 +55,15 @@ header {
   text-overflow: ellipsis;
   overflow: hidden;
 }
+.adminss-row {
+  width: 98%;
+  margin-left: 23px;
+}
 .row-margin {
   margin-left: 15px;
 }
 .magrin-left {
   margin-left: 12px;
-}
-header .logo {
-  font-size: 2.5rem;
-  color: var(--dark-blue);
-}
-
-header .logo span {
-  color: var(--blue);
-}
-
-header .navbar a {
-  font-size: 1.7rem;
-  margin-left: 0.7rem;
-  padding: 0.5rem 2rem;
-  border-radius: 0.5rem;
-  color: var(--dark-blue);
-}
-
-header .navbar a.active,
-header .navbar a:hover {
-  background: var(--blue);
-  color: #fff;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-  text-decoration: none;
-  border-radius: 12px;
-}
-
-header.sticky {
-  background: #fff;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
 }
 
 #menu {
@@ -668,22 +630,42 @@ header.sticky {
   font-size: 35px;
   cursor: pointer;
 }
+
+.major-important {
+  display: flex;
+  margin: 36px 48px;
+}
+
 .major-contain {
   display: flex;
   flex-direction: column;
   float: left;
-  margin-left: 90px;
+  margin-left: 96px;
 }
 .title-news {
   width: 212px;
+  margin-top: 8px;
 }
+.title-news > p {
+  color: #333333;
+  display: inline;
+  font-weight: 600;
+  line-height: 18px;
+  font-size: 14px;
+}
+
 .title-major {
-  border: 1px solid red;
-  background-color: red;
-  color: white;
   text-decoration: none;
-  width: 48px;
-  margin-bottom: 0px;
+  margin-bottom: 4px;
+  padding: 4px 12px 4px 4px;
+  background-color: #a9161c;
+  color: #ffffff;
+  width: 100px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: center;
+  text-transform: uppercase;
 }
 .major-image {
   width: 212px;

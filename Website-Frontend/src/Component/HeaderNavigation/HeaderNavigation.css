@@ -55,6 +55,7 @@ header {
   left: 0;
   z-index: 1000;
   padding: 2rem;
+  background-color: #fff;
 }
 
 header .logo {
@@ -77,10 +78,17 @@ header .navbar a {
   text-decoration: none;
 }
 
-header .navbar a.active,
-header .navbar a:hover {
+header .navbar .nav-link.active,
+header .navbar .nav-link:hover {
   background: var(--blue);
   color: #fff;
+  border-radius: 12px;
+  text-decoration: none;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+.header .navbar .nav-link.active {
+  background: var(--blue);
+  color: black;
   border-radius: 12px;
   text-decoration: none;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
@@ -88,6 +96,13 @@ header .navbar a:hover {
 
 header.sticky {
   background: #fff;
+  box-shadow: 0 0.5rem 1rem rgba(27, 1, 1, 0.1);
+}
+.sticky .nav-link.active {
+  background: var(--blue);
+  color: #fff;
+  border-radius: 12px;
+  text-decoration: none;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
 }
 

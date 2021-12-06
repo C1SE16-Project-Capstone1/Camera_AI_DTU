@@ -202,7 +202,7 @@ export default class Summary extends Component {
 
         <div className="information-admissions">
           <div className="container">
-            <div className="row">
+            <div className="row adminss-row">
               <div className="row-content">
                 <a href>
                   <img src={lt} alt="Luyện Thi Đại Học" />
@@ -429,7 +429,73 @@ export default class Summary extends Component {
                 </a>
                 <img
                   src={top500}
-                  alt="Luyện Thi Đại Học"
+                  alt="Top 500 Thế Giới"
+                  className="major-image"
+                />
+                <div className="title-news">
+                  <p>
+                    Đại học Duy Tân vào Top 500 Thế giới theo bảng Times ...
+                  </p>
+                </div>
+                <span>03/12/2021</span>
+                <div className="major-icon">
+                  <i class="fab fa-facebook"></i>
+                  <i class="fab fa-twitter-square"></i>
+                </div>
+              </div>
+            </div>
+            <div className="row container-row">
+              <div className=" major-contain">
+                <a href>
+                  <p className="title-major">Đào Tạo</p>
+                </a>
+                <img
+                  src={top500}
+                  alt="Top 500 Thế Giới"
+                  className="major-image"
+                />
+                <div className="title-news">
+                  <p>
+                    Đại học Duy Tân vào Top 500 Thế giới theo bảng Times ...
+                  </p>
+                </div>
+                <span>03/12/2021</span>
+                <div className="major-icon">
+                  <i class="fab fa-facebook"></i>
+                  <i class="fab fa-twitter-square"></i>
+                </div>
+              </div>
+            </div>
+            <div className="row container-row">
+              <div className=" major-contain">
+                <a href>
+                  <p className="title-major">Đào Tạo</p>
+                </a>
+                <img
+                  src={top500}
+                  alt="Top 500 Thế Giới"
+                  className="major-image"
+                />
+                <div className="title-news">
+                  <p>
+                    Đại học Duy Tân vào Top 500 Thế giới theo bảng Times ...
+                  </p>
+                </div>
+                <span>03/12/2021</span>
+                <div className="major-icon">
+                  <i class="fab fa-facebook"></i>
+                  <i class="fab fa-twitter-square"></i>
+                </div>
+              </div>
+            </div>
+            <div className="row container-row">
+              <div className=" major-contain">
+                <a href>
+                  <p className="title-major">Đào Tạo</p>
+                </a>
+                <img
+                  src={top500}
+                  alt="Top 500 Thế Giới"
                   className="major-image"
                 />
                 <div className="title-news">

@@ -96,7 +96,7 @@ export default class Footer extends Component {
           </h1>
         </div>
 
-        <a href="#thongtin" className="scroll-top">
+        <a href className="scroll-top" onClick={() => window.scrollTo(0, 0)}>
           <img src={imgScoll} alt="" />
         </a>
       </div>
