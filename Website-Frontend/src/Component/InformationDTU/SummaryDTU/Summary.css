@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 :root {
   --blue: #3c6382;
   --dark-blue: #24333d;
@@ -633,14 +633,21 @@ section {
 
 .major-important {
   display: flex;
-  margin: 36px 48px;
+  margin-top: 40px;
+  font-family: Roboto Condensed !important;
 }
-
+.container-row {
+  margin-left: 80px;
+  width: 65%;
+}
 .major-contain {
   display: flex;
   flex-direction: column;
   float: left;
-  margin-left: 96px;
+  border-bottom: 2px dashed #ccc;
+  padding-left: 0;
+  height: 256px;
+  margin-bottom: 10px;
 }
 .title-news {
   width: 212px;
@@ -650,26 +657,54 @@ section {
   color: #333333;
   display: inline;
   font-weight: 600;
-  line-height: 18px;
+  line-height: 20px;
   font-size: 14px;
 }
-
+.major-contain span {
+  color: #afafaf;
+  display: inline-block;
+  line-height: 16px;
+  text-align: left;
+}
 .title-major {
   text-decoration: none;
   margin-bottom: 4px;
-  padding: 4px 12px 4px 4px;
+  padding: 4px 12px 4px 12px;
   background-color: #a9161c;
   color: #ffffff;
-  width: 100px;
+  width: 130px;
   font-size: 16px;
-  font-weight: 500;
-  line-height: 24px;
-  text-align: center;
+  font-weight: 600;
+  line-height: 28px;
+  text-align: left;
   text-transform: uppercase;
 }
 .major-image {
   width: 212px;
   height: 131px;
+}
+.major-contain-link {
+  height: 200px;
+}
+.major-contain-link li {
+  color: #333333;
+  display: list-item;
+  font-family: Roboto Condensed;
+  font-size: 14px;
+  line-height: 18px;
+  text-align: left;
+  margin-left: 6px;
+  margin-bottom: 2px;
+}
+.major-icon {
+  color: #afafaf;
+  display: inline-block;
+  line-height: 16px;
+  text-align: left;
+  font-size: 12px;
+}
+.major-icon > :first-child {
+  margin-right: 8px;
 }
 @keyframes float {
   100%,

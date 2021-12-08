@@ -16,25 +16,28 @@ import Prevent from "./Component/InformationCovid19/Prevent/Prevent";
 import Hand from "./Component/InformationCovid19/Hand/Hand";
 import Precautions from "./Component/InformationCovid19/Precautions/Precautions";
 import Symptoms from "./Component/InformationCovid19/Symptoms/Symptoms";
+import ScrollToTop from "./Component/InformationDTU/Pages/SideNavigation/ScrollTop";
 
 function App() {
   return (
     <div className="App">
+      <ScrollToTop />
       <Menu />
       <Routes>
         <Route exact path="/" element={<SummaryCovid />} />
         <Route path="/over" element={<Summary />} />
         <Route path="/check" element={<CheckViolation />} />
-        <Route path="/summarypage" element={<SummaryPage />} />
+        <Route path="/summarypage" element={<SummaryPage />}>
+          <Route path="overview" element={<Overview />} />
+          <Route path="mission" element={<Mission />} />
+          <Route path="traditional" element={<Traditional />} />
+          <Route path="research" element={<Research />} />
+          <Route path="team" element={<Team />} />
+        </Route>
         <Route path="/prevent" element={<Prevent />} />
         <Route path="/hand-wash" element={<Hand />} />
         <Route path="/precautions" element={<Precautions />} />
         <Route path="/symptoms" element={<Symptoms />} />
-        <Route path="/overview" element={<Overview />} />
-        <Route path="/mission" element={<Mission />} />
-        <Route path="/traditional" element={<Traditional />} />
-        <Route path="/research" element={<Research />} />
-        <Route path="/team" element={<Team />} />
       </Routes>
       <Footer />
     </div>

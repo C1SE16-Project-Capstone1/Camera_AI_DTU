@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import "./HeaderNavigation.css";
 import $ from "jquery";
-import { Routes, Route, Link, NavLink } from "react-router-dom";
+import {HashLink as NavLink} from 'react-router-hash-link'
+import { Routes, Route, Link } from "react-router-dom";
 
 export default class Menu extends Component {
   render() {
@@ -14,25 +15,25 @@ export default class Menu extends Component {
           </a>
           <div id="menu" className="fas fa-bars" />
           <nav className="navbar">
-            <NavLink className="nav-link" to="/">
+            <NavLink smooth className="nav-link" to="/">
               Home
             </NavLink>
-            <NavLink className="nav-link" to="/prevent">
+            <NavLink smooth className="nav-link" to="/prevent">
               prevent
             </NavLink>
-            <NavLink className="nav-link" to="/symptoms">
+            <NavLink smooth className="nav-link" to="/symptoms">
               symptoms
             </NavLink>
-            <NavLink className="nav-link" to="/precautions">
+            <NavLink smooth className="nav-link" to="/precautions">
               precautions
             </NavLink>
-            <NavLink className="nav-link" to="/hand-wash">
+            <NavLink smooth className="nav-link" to="/hand-wash">
               hand-wash
             </NavLink>
-            <NavLink className="nav-link" to="/over">
+            <NavLink smooth className="nav-link" to="/over">
               Duy Tan University
             </NavLink>
-            <NavLink className="nav-link" to="/check">
+            <NavLink smooth className="nav-link" to="/check">
               Check for Violation
             </NavLink>
           </nav>

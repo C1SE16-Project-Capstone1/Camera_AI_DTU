@@ -15,6 +15,10 @@ import hb from "../../../images/xethocba.png";
 import dd from "../../../images/diendansinhvien.png";
 import SummaryPage from "../Pages/SummaryPage/SummaryPage";
 import top500 from "../../../images/top500.jpg";
+import Overview from "../Pages/Overview/Overview";
+import nghiencuu from "../../../images/IMG_6616-59.jpg";
+import hoptac from "../../../images/hoptac.jpg";
+import hoatdong from "../../../images/hoatdong.jpg";
 
 export default class Summary extends Component {
   render() {
@@ -31,7 +35,11 @@ export default class Summary extends Component {
                 Tổ chức Times Higher Education (THE) vừa công bố bảng xếp hạng
                 các trường đại học tốt nhất thế giới...
               </h3>
-              <Link to="/summarypage" element={SummaryPage} className="btn">
+              <Link
+                to="/summarypage/overview"
+                element={<Overview />}
+                className="btn"
+              >
                 Xem Thêm...
               </Link>
             </div>
@@ -443,72 +451,100 @@ export default class Summary extends Component {
                   <i class="fab fa-twitter-square"></i>
                 </div>
               </div>
+              <ul className="major-contain-link">
+                <li>
+                  <a>Các ngành học “hot” tại Đại học Duy Tân</a>
+                </li>
+                <li>
+                  <a>Chương trình Đào tạo Thạc sĩ tại Đại học Duy Tân</a>
+                </li>
+              </ul>
             </div>
             <div className="row container-row">
               <div className=" major-contain">
                 <a href>
-                  <p className="title-major">Đào Tạo</p>
+                  <p className="title-major">Nghiên Cứu</p>
                 </a>
                 <img
-                  src={top500}
-                  alt="Top 500 Thế Giới"
+                  src={nghiencuu}
+                  alt="Hệ thống Phòng Thí nghiệm tại Đại học Duy Tân"
                   className="major-image"
                 />
                 <div className="title-news">
-                  <p>
-                    Đại học Duy Tân vào Top 500 Thế giới theo bảng Times ...
-                  </p>
+                  <p>Hệ thống Phòng Thí nghiệm tại Đại học Duy Tân</p>
                 </div>
-                <span>03/12/2021</span>
+                <span>14/11/2021</span>
                 <div className="major-icon">
                   <i class="fab fa-facebook"></i>
                   <i class="fab fa-twitter-square"></i>
                 </div>
               </div>
+              <ul className="major-contain-link">
+                <li>
+                  <a>Hoạt động Nghiên cứu tại Đại học Duy Tân</a>
+                </li>
+                <li>
+                  <a>Hướng nghiên cứu tại Đại học Duy Tân</a>
+                </li>
+              </ul>
             </div>
             <div className="row container-row">
               <div className=" major-contain">
                 <a href>
-                  <p className="title-major">Đào Tạo</p>
+                  <p className="title-major">Hợp Tác</p>
                 </a>
                 <img
-                  src={top500}
-                  alt="Top 500 Thế Giới"
+                  src={hoptac}
+                  alt="Đại học Duy Tân Nỗ lực Hợp tác Trong nước và Quốc tế"
                   className="major-image"
                 />
                 <div className="title-news">
-                  <p>
-                    Đại học Duy Tân vào Top 500 Thế giới theo bảng Times ...
-                  </p>
+                  <p>Đại học Duy Tân Nỗ lực Hợp tác Trong nước và Quốc tế</p>
                 </div>
-                <span>03/12/2021</span>
+                <span>15/11/2021</span>
                 <div className="major-icon">
                   <i class="fab fa-facebook"></i>
                   <i class="fab fa-twitter-square"></i>
                 </div>
               </div>
+              <ul className="major-contain-link">
+                <li>
+                  <a>Những người bạn lớn</a>
+                </li>
+                <li>
+                  <a>Hoạt động Hợp tác Quốc tế</a>
+                </li>
+              </ul>
             </div>
             <div className="row container-row">
               <div className=" major-contain">
                 <a href>
-                  <p className="title-major">Đào Tạo</p>
+                  <p className="title-major">Hoạt Động</p>
                 </a>
                 <img
-                  src={top500}
-                  alt="Top 500 Thế Giới"
+                  src={hoatdong}
+                  alt="Sinh viên Đại học Duy Tân Đồng hành cùng Tp. Đà Nẵng ..."
                   className="major-image"
                 />
                 <div className="title-news">
                   <p>
-                    Đại học Duy Tân vào Top 500 Thế giới theo bảng Times ...
+                    Sinh viên Đại học Duy Tân Đồng hành cùng Tp. Đà Nẵng ...
                   </p>
                 </div>
-                <span>03/12/2021</span>
+                <span>15/11/2021</span>
                 <div className="major-icon">
                   <i class="fab fa-facebook"></i>
                   <i class="fab fa-twitter-square"></i>
                 </div>
               </div>
+              <ul className="major-contain-link">
+                <li>
+                  <a>
+                    Đoàn trường Đại học Duy Tân tổ chức Lễ kỷ niệm 90 năm ngày
+                    Thành lập Đoàn TNCS Hồ Chí Minh
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>

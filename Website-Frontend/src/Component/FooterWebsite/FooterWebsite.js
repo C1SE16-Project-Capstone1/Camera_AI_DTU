@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import "./FooterWebsite.css";
 import imgScoll from "../../images/scroll-img.png";
+import Overview from "../InformationDTU/Pages/Overview/Overview";
+import { Link } from "react-router-dom";
+import ScrollToTop from "../InformationDTU/Pages/SideNavigation/ScrollTop";
 
 export default class Footer extends Component {
   render() {
@@ -45,34 +48,34 @@ export default class Footer extends Component {
             </div>
             <div className="box">
               <h3>quick links</h3>
-              <a href="#">
+              <Link to="/">
                 <i className="fas fa-home footer-icon" />
                 home
-              </a>
-              <a href="#">
+              </Link>
+              <Link to="/prevent">
                 <i className="fas fa-link footer-icon" />
                 prevent
-              </a>
-              <a href="#">
+              </Link>
+              <Link to="symptoms">
                 <i className="fas fa-link footer-icon" />
                 symptoms
-              </a>
-              <a href="#">
+              </Link>
+              <Link to="/precautions">
                 <i className="fas fa-link footer-icon" />
                 precautions
-              </a>
-              <a href="#">
+              </Link>
+              <Link to="/hand-wash">
                 <i className="fas fa-hands footer-icon" />
                 hand-wash
-              </a>
-              <a href="#">
+              </Link>
+              <Link to="/over">
                 <i className="fas fa-university footer-icon" />
                 Duy Tan University
-              </a>
-              <a href="#">
+              </Link>
+              <Link to="/check">
                 <i className="fas fa-search footer-icon" />
                 Check For Violation
-              </a>
+              </Link>
             </div>
             <div className="box box-content">
               <h3>Duy Tan University</h3>
@@ -86,9 +89,13 @@ export default class Footer extends Component {
                 Phone Number: (+84) 236.3650403 - (+84) 236.3827111{" "}
                 <i className="fas fa-phone-square" />
               </p>
-              <a className="footer-readmore" href="overview-DTU.html">
+              <Link
+                className="footer-readmore"
+                to="/summarypage/overview"
+                element={<Overview />}
+              >
                 Read More
-              </a>
+              </Link>
             </div>
           </div>
           <h1 className="credit">
@@ -96,9 +103,12 @@ export default class Footer extends Component {
           </h1>
         </div>
 
-        <a href className="scroll-top" onClick={() => window.scrollTo(0, 0)}>
+        <Link to className="scroll-top" element={<ScrollToTop />}>
           <img src={imgScoll} alt="" />
-        </a>
+        </Link>
+        {/* <a href className="scroll-top" onClick={() => window.scrollTo(0, 0)}>
+          <img src={imgScoll} alt="" />
+        </a> */}
       </div>
     );
   }

@@ -4,11 +4,12 @@ import "./HomePage.css";
 import imgHome from "../../../images/home.svg";
 import imgAbout from "../../../images/about.svg";
 
+
 export default class Home extends Component {
   render() {
     return (
       <div>
-        <section className="home" id="home">
+        <section className="home" id="/">
           <div className="container home-page-one">
             <div className="row min-vh-100 align-items-center pt-5">
               <div className="col-md-6 img-home">
@@ -40,7 +41,7 @@ export default class Home extends Component {
                   washing your hands or using an alcohol-based rub frequently.
                   Get vaccinated when it’s your turn and follow local guidance.
                 </p>
-                <a href="#" className="link-btn">
+                <a href="https://en.wikipedia.org/wiki/COVID-19_pandemic" target="_blank" className="link-btn">
                   learn more
                 </a>
               </div>
