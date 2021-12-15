@@ -4,7 +4,6 @@ import "./HomePage.css";
 import imgHome from "../../../images/home.svg";
 import imgAbout from "../../../images/about.svg";
 
-
 export default class Home extends Component {
   render() {
     return (
@@ -41,7 +40,11 @@ export default class Home extends Component {
                   washing your hands or using an alcohol-based rub frequently.
                   Get vaccinated when it’s your turn and follow local guidance.
                 </p>
-                <a href="https://en.wikipedia.org/wiki/COVID-19_pandemic" target="_blank" className="link-btn">
+                <a
+                  href="https://en.wikipedia.org/wiki/COVID-19_pandemic"
+                  target="_blank"
+                  className="link-btn"
+                >
                   learn more
                 </a>
               </div>

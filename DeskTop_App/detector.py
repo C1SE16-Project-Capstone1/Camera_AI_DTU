@@ -11,7 +11,9 @@ class face_detector():
         prototxt_path = "face_detector/deploy.prototxt"
         # Net weight
         caffemodel_path = "face_detector/weights.caffemodel"
+        #load model
         self.detector = cv2.dnn.readNetFromCaffe(prototxt_path, caffemodel_path)
+        
 
     def return_box(self, image):
         # viet tat cua [0:2] ,numpy , tra ve kich thuoc trong cac toa do 
@@ -58,6 +60,9 @@ class face_detector():
         Output: [(y0,x1,y1,x0),(y0,x1,y1,x0),...,(y0,x1,y1,x0)] ,cada tupla represents an detected face
         si no se detecta nada  --> Output: []
         '''
+
+        #  trả về danh sách các khuôn mặt detect đc dạng list tuple điểm, 1 tuple là 1 khuon mat
+        #  tuple dạng (y0,x1,y1,x0)
         list_box = self.return_box(image)
         try:
             box_faces = [(box[1], box[2], box[3], box[0]) for box in list_box.astype("int")]

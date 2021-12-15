@@ -579,6 +579,25 @@ class App(tk.Toplevel):
             os.mkdir(FOLDER+str(id))
         except:
             pass
+        
+        self.name_student = self.name.get()
+        if self.name_student == "":
+            messagebox.showwarning(
+                "WARNING", "YOU HAVE NOT ENTERED STUDENT'S NAME !!!, PLEASE TRY AGAIN !!!")
+            return False
+        self.class_student = self.name_class.get()
+        if self.class_student == "":
+            messagebox.showwarning(
+                "WARNING", "YOU HAVE NOT ENTERED STUDENT'S CLASS !!!, PLEASE TRY AGAIN !!!")
+            return False
+        self.phoneNumber_student = self.phone_number.get()
+
+        #có thể check số điện thoai nếu muốn
+        if check_PhoneNumber(self.phoneNumber_student) == False:
+            messagebox.showwarning(
+                "WARNING", "YOU HAVE NOT ENTERED OR ENTER WRONG STUDENT'S PHONE NUMBER !!!, PLEASE TRY AGAIN !!!")
+            return False
+        
         # name_img = FOLDER+str(id) +"img"+str(randrange(1000,10000))+".jpg"
         name_img = FOLDER+str(id)+"/"+"img"+str(randrange(1000,10000))+".jpg"
         imgpil = ImageTk.getimage(self.photo2)
@@ -650,23 +669,6 @@ class App(tk.Toplevel):
             self.label_result_train.grid(row = 6,column=2,pady = 20)
             
     def train(self):
-        self.name_student = self.name.get()
-        if self.name_student == "":
-            messagebox.showwarning(
-                "WARNING", "YOU HAVE NOT ENTERED STUDENT'S NAME !!!, PLEASE TRY AGAIN !!!")
-            return False
-        self.class_student = self.name_class.get()
-        if self.class_student == "":
-            messagebox.showwarning(
-                "WARNING", "YOU HAVE NOT ENTERED STUDENT'S CLASS !!!, PLEASE TRY AGAIN !!!")
-            return False
-        self.phoneNumber_student = self.phone_number.get()
-
-        #có thể check số điện thoai nếu muốn
-        if check_PhoneNumber(self.phoneNumber_student) == False:
-            messagebox.showwarning(
-                "WARNING", "YOU HAVE NOT ENTERED OR ENTER WRONG STUDENT'S PHONE NUMBER !!!, PLEASE TRY AGAIN !!!")
-            return False
         result_add = add_student(self.id_sv,self.name_student,self.class_student,self.phoneNumber_student)
         if result_add == False:
             messagebox.showwarning(

@@ -41,6 +41,7 @@ def name_to_color(name):
 
 
 # Trains Classifier
+# using ham
 def train(train_dir, model_save_path=None, n_neighbors=None, knn_algo='ball_tree', verbose=False):
     X = []
     Y = []
@@ -53,9 +54,9 @@ def train(train_dir, model_save_path=None, n_neighbors=None, knn_algo='ball_tree
         # Loop through each training image for the current person
         for img_path in image_files_in_folder(os.path.join(train_dir, class_dir)):
 
-
+            
             image = face_recognition.load_image_file(img_path)
-            # Uses previously iniate detector
+            # Uses previously iniated detector (detector.py)
             face_bounding_boxes = rec_face.detect_face(image=image)
 
             if len(face_bounding_boxes) != 1:
@@ -65,6 +66,7 @@ def train(train_dir, model_save_path=None, n_neighbors=None, knn_algo='ball_tree
                         face_bounding_boxes) < 1 else "Found more than one face"))
             else:
                 # Add face encoding for current image to the training set
+                # X is code data, Y is label id
                 X.append(face_recognition.face_encodings(image, known_face_locations=face_bounding_boxes)[0])
                 Y.append(class_dir)
 
@@ -123,6 +125,7 @@ def predict(X_img_path_or_frame, knn_clf=None, model_path=None, distance_thresho
 
 
 # Displays labels on image
+
 def show_prediction_labels_on_image(img_path, predictions):
     image = face_recognition.load_image_file(img_path)
     image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)

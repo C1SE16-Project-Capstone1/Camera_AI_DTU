@@ -103,7 +103,7 @@ export default class Footer extends Component {
           </h1>
         </div>
 
-        <Link to className="scroll-top" element={<ScrollToTop />}>
+        <Link to className="scroll-top" onClick={() => window.scrollTo(0, 0)}>
           <img src={imgScoll} alt="" />
         </Link>
         {/* <a href className="scroll-top" onClick={() => window.scrollTo(0, 0)}>
